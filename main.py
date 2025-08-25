@@ -1,31 +1,29 @@
 import streamlit as st
-import pandas as pd
-from PIL import Image
+import test ,home,about
+from streamlit_option_menu import option_menu
 
+st.set_page_config(page_title="Option Menu Example", layout="wide")
 
+# Horizontal menu
+selected = option_menu(
+    None, ["Home", "About", "TestMe"],  # Menu items
+    icons=["house", "info-circle", "envelope"],    # Icons
+    menu_icon="cast", 
+    default_index=0,
+    orientation="horizontal"             
+    # 👈 Horizontal Menu
+)
 
-name=st.text_input("Enter your name:")
-fname=st.text_input("Enter your father name:")
-address=st.text_area("Enter the home address")
-classdata=st.selectbox("Select the calss:",(1,2,3,4,5,6,7,8,9,10))
-
-button=st.button("Save")
-
-if button:
-    data = {
-    "Name": [{name}],
-    "Father Name": [{fname}],
-    "Address": [{address}],
-    "Class": [{classdata}]
-}
-# Convert dictionary to DataFrame
-    df = pd.DataFrame(data)
-    st.write("My details--------------")
-    st.dataframe(df)  # Scrollable & sortable table   
-    # Create some sample data
+# Page content
+if selected == "Home":   
+    home.app()
+        
+elif selected == "About":    
+    about.app()
     
-# Load the image
-img = Image.open("Arkaan.jpg")  # Replace with your image file path
+elif selected == "TestMe":    
+    test.app()
 
-# Display the image
-st.image(img)    
+
+    
+  
