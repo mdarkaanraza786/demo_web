@@ -7,7 +7,7 @@ st.set_page_config(page_title="Option Menu Example", layout="wide")
 # Horizontal menu
 selected = option_menu(
     None, ["Home", "About", "TestMe"],  # Menu items
-    icons=["house", "info-circle", "envelope"],    # Icons
+    icons=["house", "info-circle", "gear-fill"],    # Icons
     menu_icon="cast", 
     default_index=0,
     orientation="horizontal"             
@@ -23,6 +23,8 @@ elif selected == "About":
     
 elif selected == "TestMe":    
     test.app()
+    test.printALL()
+    
 
 
     
