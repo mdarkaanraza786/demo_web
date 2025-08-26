@@ -1,12 +1,6 @@
 import streamlit as st
 import pandas as pd
-import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import firestore
 
-
-db=firestore.client()
-doc_ref=db.collection('registrationCollection').document()
 
 
 def app():
@@ -21,19 +15,15 @@ def app():
 
     if button:
         data = {
-        "Name": {name},
-        "FatherName": {fname},
-        "Address": {address},
-        "Class": {classdata}
+        "Name": [{name}],
+        "FatherName": [{fname}],
+        "Address": [{address}],
+        "Class": [{classdata}]
         }       
         
-        doc_ref.set(data)
-        printALL()
+        df = pd.DataFrame(data)
+        st.dataframe(df)
         
         
-def printALL():
-   docs = db.collection("registrationCollection").stream()
-   data = [doc.to_dict() for doc in docs]
-   df = pd.DataFrame(data)
-   st.dataframe(df)
+
    

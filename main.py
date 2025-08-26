@@ -23,7 +23,6 @@ elif selected == "About":
     
 elif selected == "TestMe":    
     test.app()
-    test.printALL()
     
 
 
