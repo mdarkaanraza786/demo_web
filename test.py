@@ -1,6 +1,17 @@
 import streamlit as st
+import basicmath
 import pandas as pd
 
+def testme():
+    options = ["Please select -----","Sum", "Product", "Subtract"]
+    choice = st.selectbox("Choose Program to execute:", options)    
+    if choice=="Product":
+       basicmath.product()
+    elif choice=="Sum":
+       basicmath.sum()
+    elif choice=="Subtract":
+       basicmath.subtract()
+       
 
 
 def app():

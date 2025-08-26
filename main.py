@@ -21,8 +21,9 @@ if selected == "Home":
 elif selected == "About":    
     about.app()
     
-elif selected == "TestMe":    
-    test.app()
+elif selected == "TestMe": 
+    test.testme()   
+   
     
 
 
